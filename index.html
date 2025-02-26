@@ -1,8 +1,103 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Hi</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    </style>
+    <!--FOR THE SHUFFLING FONTS PART-->
+    <!--TODO: FIGURE OUT HOW NOT TO IMPORT/DOWNLOAD ALL THAT AND JUST GET THE CHARACTER I NEED-->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gravitas+One&family=Kalam:wght@300;400;700&family=Krona+One&family=Monoton&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
+    </style>
+    <!--OK ALL DONE NOW-->
+    <link rel="stylesheet" href="main.css">
+    <script src="assets/matter.js"></script>
   </head>
   <body>
-    <h1>Hello</h1>
+    <svg style="display: none">
+      <symbol id="chevron" viewBox="0 0 700 900" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="200,200 450,450 200,700" 
+                    fill="none" 
+                    stroke="var(--light)" 
+                    stroke-width="150"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="arrowbend" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" 
+              clip-rule="evenodd" 
+              d="M17.53 10.03C17.82 9.74 17.82 9.26 17.53 8.97L12.53 3.97C12.24 3.68 11.76 3.68 11.47 3.97L6.47 8.97C6.18 9.26 6.18 9.74 6.47 10.03C6.76 10.32 7.24 10.32 7.53 10.03L11.25 6.31V14.5C11.25 15.21 11.03 16.3 10.39 17.19C9.78 18.04 8.76 18.75 7 18.75C6.59 18.75 6.25 19.09 6.25 19.5C6.25 19.91 6.59 20.25 7 20.25C9.24 20.25 10.72 19.3 11.61 18.06C12.47 16.87 12.75 15.45 12.75 14.5L12.75 6.31L16.47 10.03C16.76 10.32 17.24 10.32 17.53 10.03Z"
+ 
+              fill="var(--light)"></path>
+      </symbol>
+    </svg>
+
+    <div id="cursor"></div>
+    <div id="background"></div>
+    <div id="noise"></div>
+    <div id="lightmode"></div> 
+
+    <div id="topbar">
+      <div id="home" onclick="document.getElementById('top').scrollIntoView({ behavior: 'smooth' })" onmouseover="shuffling=false" onmouseout="shuffling=true">N</div>
+      <div id="settings"></div>
+      <div id="togglelight" class="toggle" onclick="this.classList.toggle('active'); toggleLight()"></div>
+    </div>
+
+    <div id="menucontainer">
+      <button id="menubutton" onclick="toggleMenu()"></button>
+      <div id="menu">
+        <div class="menuitem">item1</div>
+        <div class="menuitem">item2</div>
+        <div class="menuitem">item3</div>
+        <div class="menuitem">item4</div>
+        <div class="menuitem">item5</div>
+        <div class="menuitem">item6</div>
+        <div class="menuitem">item7</div>
+        <div class="menuitem">item8</div>
+      </div>
+    </div>
+
+    <div id="projectsbutton" class="hover" onclick="toggleProjects()">
+      <svg id="pbchevron" style="transition: transform 0.3s ease-in">
+        <use href="#chevron"></use>
+      </svg>
+    </div>
+    <div id="projects">
+      
+    </div>    
+
+    <section id="top">
+        <h1 class="hover" id="greeting">Hi There, <br>I'm Nolan.</h1>
+        <div id="keepscrolling">
+          <p>keep scrolling</p> 
+        </div>
+
+        <div id="projectspointer">
+          <svg style="transform: rotateZ(-90deg) translate(-15%, -75%) scale(0.75);">
+            <use href="#arrowbend"></use>
+          </svg>
+          <p>click that to see some <br>neat projects I've done</p>
+        </div>
+    </section>
+    
+    <section id="p2" class="courier">
+      <h1 class>Blah Blah Blah</h1>
+    </section>
+    
+    <section id="p3">
+      <h1 class="hover">Blah Blah Blah</h1>
+    </section>
+
+    <script src="index.js"></script>
   </body>
 </html>
+
+<!--
+TODO:
+import matter.js
+make background canvas
+make simulation of balls
+add square movement and interaction
+cross-update dom and canvas
+-->
